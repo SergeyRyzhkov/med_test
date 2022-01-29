@@ -1,0 +1,74 @@
+$screen-small: 320px;
+$screen-retina: 414px;
+$screen-mobile-small: 480px;
+$screen-mobile: 640px;
+$screen-tablet: 768px;
+$screen-widescreen: 1024px;
+$screen-desktop: 1280px;
+$screen-notebook: 1350px;
+$screen-fullhd: 1920px;
+
+@mixin small {
+  @media (min-width: $screen-small) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (min-width: $screen-retina) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $screen-mobile) {
+    @content;
+  }
+}
+@mixin mobile-small {
+  @media (min-width: $screen-mobile-small) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (min-width: $screen-widescreen) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $screen-desktop) {
+    @content;
+  }
+}
+
+@mixin notebook {
+  @media (min-width: $screen-notebook) {
+    @content;
+  }
+}
+
+@mixin fullhd {
+  @media (min-width: $screen-fullhd) {
+    @content;
+  }
+}
+
+@mixin rwd($screen) {
+  @media (max-width: $screen + "px") {
+    @content;
+  }
+}
+
+@mixin nwd($screen) {
+  @media (min-width: $screen + "px") {
+    @content;
+  }
+}

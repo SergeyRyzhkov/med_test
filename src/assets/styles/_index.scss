@@ -1,0 +1,15 @@
+@import "variables";
+@import "layouts";
+@import "media";
+@import "typography";
+@import "_skeleton";
+
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --light-gray: #{$light-gray};
+  --gray: #{$gray};
+  --text-gray: #{$text-gray};
+  --footer-color: #{$footer-color};
+  --red-color: #{$red-color};
+}

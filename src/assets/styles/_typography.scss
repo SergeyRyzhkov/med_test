@@ -1,0 +1,70 @@
+/*! purgecss start ignore */
+@font-face {
+  font-family: "Compact";
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  src: url("/fonts/compact/compact.woff2") format("woff2");
+}
+
+body {
+  color: $primary !important;
+  font-family: $font-famaly;
+  font-size: 16px;
+  line-height: 22px !important;
+  font-weight: 500;
+}
+
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1 {
+  font-family: "Compact";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 50px;
+  text-transform: uppercase;
+  @media (min-width: $screen-tablet) {
+    font-size: 46px;
+    line-height: 56px;
+  }
+}
+
+h2 {
+  font-size: 27px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $primary;
+  margin: 0;
+  padding: 0;
+}
+
+/*! purgecss end ignore */
