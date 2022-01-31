@@ -4,7 +4,7 @@ import { Pagination } from "@/_core/models/Pagination";
 import Cacheable from "@/_core/MethodCacheDecorator";
 
 export class TrainingService extends BaseService {
-  // @Cacheable(0)
+  @Cacheable(0)
   async getAll(pagination: Pagination, _dateFrom?: string, _dateTo?: string) {
     return await this.getArrayOrEmptyWithPagination(
       TrainingModel,
@@ -14,7 +14,7 @@ export class TrainingService extends BaseService {
     );
   }
 
-  // @Cacheable(0)
+  @Cacheable(0)
   getBySlug(slug: string) {
     const id = this.getIdBySlug(slug);
     return id ? this.getOneOrDefault(TrainingModel, `training/${id}`) : new TrainingModel();

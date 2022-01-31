@@ -18,7 +18,7 @@
       ></base-calendar>
     </div>
 
-    <div v-if="$fetchState.pending" class="mt-30 gap-y-30 gap-x-30 grid grid-cols-1 md:mt-40 md:grid-cols-2 lg:grid-cols-3">
+    <div v-show="$fetchState.pending" class="mt-30 gap-y-30 gap-x-30 grid grid-cols-1 md:mt-40 md:grid-cols-2 lg:grid-cols-3">
       <template v-for="index in 6">
         <SkeletonTrainingItem :key="index"> </SkeletonTrainingItem>
       </template>

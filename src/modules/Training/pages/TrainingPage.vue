@@ -1,5 +1,9 @@
 <template>
   <main class="page-wrapper">
+    <div v-show="$fetchState.pending" class="container">
+      <SkeletonTrainingPage></SkeletonTrainingPage>
+    </div>
+
     <div class="container">
       <BreadCrumbs />
     </div>
@@ -52,7 +56,7 @@
     <section class="container-fluid">
       <div class="training-section-wrapper">
         <h2 class="training-section__caption"></h2>
-        <div id="enroll_training" class="training-section__content">
+        <div id="enroll_training" ref="enroll_training" class="training-section__content">
           <div class="text-24 font-semibold">
             Записаться на курс или <br />
             получить бесплатную консультацию
@@ -132,7 +136,7 @@ export default class TrainingPage extends Vue {
   }
 
   onSubscribeClicked() {
-    // this.enrollTraining?.$el?.scrollIntoView({ behavior: "smooth" });
+    (this.$refs.enroll_training as any).scrollIntoView({ behavior: "smooth" });
   }
 }
 </script>
