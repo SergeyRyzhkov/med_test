@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="container-fluid bg-primary z-50 h-[43px] text-sm"></div>
     <header class="flex h-[63px] items-center justify-between p-16">
       <div class="flex items-center">
         <div class="menu-toogler" :class="{ active: menuOpened }" @click="menuToggle()">
@@ -12,11 +11,11 @@
     </header>
     <div class="mobile-menu-list w-screen" :class="{ active: menuOpened === true }">
       <ul class="mt-10">
-        <li><nuxt-link :to="{ name: 'catalog' }">Каталог</nuxt-link></li>
+        <!-- <li><nuxt-link :to="{ name: 'catalog' }">Каталог</nuxt-link></li>
         <li><nuxt-link :to="{ name: 'training' }">Обучение парикмахеров</nuxt-link></li>
         <li><nuxt-link :to="{ name: 'cooperation' }">Сотрудничество</nuxt-link></li>
         <li><nuxt-link :to="{ name: 'news' }">Новости</nuxt-link></li>
-        <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li>
+        <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li> -->
       </ul>
     </div>
   </div>

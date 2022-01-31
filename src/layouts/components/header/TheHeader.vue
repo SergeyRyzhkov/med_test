@@ -1,13 +1,21 @@
 <template>
   <section>
     <header class="relative z-50">
+      <div class="bg-white">
+        <div class="py-34 container flex items-center">
+          <!-- <HeaderLogo></HeaderLogo> -->
+          <!-- <HeaderSearchInput class="mx-24 lg:mx-48"></HeaderSearchInput> -->
+          <TheHeaderUser class="ml-auto flex-shrink-0"></TheHeaderUser>
+        </div>
+      </div>
       <div class="container-fluid bg-primary relative">
         <nav class="flex flex-col">
           <ul class="header-menu-list text-14 font-semibold text-white">
-            <li><nuxt-link :to="{ name: 'training' }">Обучение парикмахеров</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'cooperation' }">Сотрудничество</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'news' }">Новости</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'training' }">Программы обучения</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'main' }">О нас</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'main' }">Вебинары</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'main' }">Новости</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'main' }">Контакты</nuxt-link></li>
           </ul>
         </nav>
       </div>

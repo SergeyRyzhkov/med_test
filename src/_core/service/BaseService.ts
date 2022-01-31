@@ -169,6 +169,9 @@ export class BaseService {
       // Разберемся с пагинацией. Везде по разному, обобщим.
       if (response?.data?.meta) {
         paginCollection.pagination = plainToClass(Pagination, response?.data?.meta);
+      } else {
+        paginCollection.pagination = pagination as Pagination;
+        // paginCollection.pagination.currentPage = paginCollection.pagination.currentPage + 1;
       }
       if (response?.data?.count > -1 && !!paginCollection.pagination) {
         paginCollection.pagination = pagination as Pagination;

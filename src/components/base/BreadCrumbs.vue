@@ -1,5 +1,5 @@
 <template>
-  <div v-if="shouldShow" class="breadcrumbs mt-28 mb-28">
+  <div v-if="shouldShow" class="breadcrumbs mt-18 mb-18 md:mt-28 md:mb-28">
     <ol class="breadcrumbs__list" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
       <li
         v-for="(bread, idx) in breadCrumbs"
@@ -27,8 +27,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "nuxt-property-decorator";
+import { Component, Vue, getModule, Prop } from "nuxt-property-decorator";
 
+import AppStore from "@/modules/Root/store/AppStore";
 import { RouteLink } from "@/_core/models/RouteLink";
 
 @Component
@@ -37,7 +38,7 @@ export default class BreadCrumbs extends Vue {
   links: RouteLink[];
 
   get breadCrumbs() {
-    return this.links;
+    return this.links || getModule(AppStore, this.$store).breadCrumbs;
   }
 
   get shouldShow() {

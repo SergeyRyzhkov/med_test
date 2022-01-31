@@ -1,4 +1,11 @@
 /*! purgecss start ignore */
+.loading-image {
+  background: #ffffff;
+  background: -webkit-linear-gradient(top right, #ffffff, #d3d3d2);
+  background: -moz-linear-gradient(top right, #ffffff, #d3d3d2);
+  background: linear-gradient(to bottom left, #ffffff, #d3d3d2);
+}
+
 .skeleton {
   position: relative;
   display: block;

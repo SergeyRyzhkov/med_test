@@ -1,4 +1,4 @@
-const loadClassesName = ["skeleton", "skeleton--wave"];
+const loadClassesName = ["loading-image"];
 
 const options = {
   root: null,

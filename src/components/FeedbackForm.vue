@@ -32,7 +32,7 @@
 
     <div class="flex flex-col md:flex-row">
       <BaseInput v-model="formModel.city" placeholder="Из какого вы города*" class="mb-27" />
-      <BaseMultiSelect v-model="formModel.area" placeholder="Сфера деятельности*" :options="areaOptions" class="mb-27 md:ml-32">
+      <BaseMultiSelect v-model="formModel.area" placeholder="Специализация*" :options="areaOptions" class="mb-27 md:ml-32">
       </BaseMultiSelect>
     </div>
 
@@ -45,7 +45,7 @@
     />
     <BaseButton type="submit" class="mt-20 md:mt-40">Отправить</BaseButton>
 
-    <p class="mt-16 -mb-32 text-12 text-gray-color md:mt-32">
+    <p class="text-12 text-gray-color mt-16 -mb-32 md:mt-32">
       Защита от спама reCAPTCHA
       <a class="inline underline focus:no-underline" href="https://policies.google.com/privacy" target="_blank"
         >Конфиденциальность
@@ -101,35 +101,21 @@ export default class FeedbackForm extends Vue {
     loadReCaptchaScript(this.$config.reCaptchaSiteKey);
   }
 
-  async send() {
+  send() {
     this.$v.$touch();
     if (this.$v.$invalid) {
       return;
     }
-
-    const recaptchaToken = await executeAction(this.$config.reCaptchaSiteKey, "FeedbackForm");
-    if (!!recaptchaToken) {
-      this.formModel.recaptchaToken = recaptchaToken;
-      this.formModel.area = this.formModel?.area?.name;
-      try {
-        await this.$serviceLocator.getService(EmptyService).apiRequest.post("/users/feedback", this.formModel);
-        this.$modalManager.showNotify("Сообщение отправлено !");
-      } catch (err: any) {
-        this.$modalManager.showError("Не удалось отправить сообщение!");
-      }
-    } else {
-      this.$modalManager.showError("Вы бот !");
-    }
-    this.$emit("close");
+    this.$modalManager.showNotify("Сообщение отправлено !");
   }
 
   areaOptions = [
-    { id: 1, name: "Мастер-парикмахер" },
-    { id: 2, name: "Салон красоты" },
-    { id: 3, name: "Школа парикмахеров" },
-    { id: 4, name: "Магазин проф. косметики" },
-    { id: 5, name: "Дистрибьютор в регионе" },
-    { id: 6, name: "Оптовая фирма" },
+    { id: 1, name: "Врач-1" },
+    { id: 2, name: "Врач-122" },
+    { id: 3, name: "Врач-44" },
+    { id: 4, name: "Врач-55" },
+    { id: 5, name: "Врач-6" },
+    { id: 6, name: "Врач-5" },
   ];
 }
 </script>

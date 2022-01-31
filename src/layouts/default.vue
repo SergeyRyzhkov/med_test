@@ -5,21 +5,13 @@
     <nuxt />
     <TheFooter class="mt-40 md:mt-60"></TheFooter>
     <client-only><BaseBackToTop></BaseBackToTop></client-only>
-    <client-only>
-      <cookie-component />
-    </client-only>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import CookieComponent from "@/components/CookieComponent.vue";
 
-@Component({
-  components: {
-    CookieComponent,
-  },
-})
+@Component
 export default class DefaultLayout extends Vue {
   public head() {
     const canonical = `${this.$config.siteUrl}${this.$route.path.toLowerCase()}`;

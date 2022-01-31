@@ -316,6 +316,6 @@ span.vfc-span-day.vfc-end-marked::before {
 
 .vfc-single-input__placeholder {
   font-size: 14px !important;
-  color: $text-gray !important;
+  color: $gray !important;
 }
 </style>

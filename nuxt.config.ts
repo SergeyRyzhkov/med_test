@@ -3,6 +3,9 @@ import { NuxtConfig } from "@nuxt/types";
 
 const SRC_DIR: NuxtConfig["srcDir"] = "src/";
 
+// FIXME: Должен быть в .env
+const BASE_URL = "https://61f7d1c339431d0017eafa31.mockapi.io/api";
+
 const nuxtConfig: NuxtConfig = {
   modern: true,
   srcDir: SRC_DIR,
@@ -13,7 +16,7 @@ const nuxtConfig: NuxtConfig = {
     { path: "@/layouts", pathPrefix: false },
   ],
 
-  loading: { color: "red", height: "5px" },
+  loading: { color: "#2f80f3", height: "2px" },
 
   head: {
     htmlAttrs: {
@@ -134,8 +137,8 @@ const nuxtConfig: NuxtConfig = {
   },
 
   axios: {
-    baseURL: process.env.API_URL,
-    credentials: true,
+    baseURL: BASE_URL,
+    // credentials: true,
   },
 
   webfontloader: {
@@ -151,18 +154,17 @@ const nuxtConfig: NuxtConfig = {
   },
 
   publicRuntimeConfig: {
-    apiUrl: "https://api.kaypro.plenexy.digital/api",
-    baseUrl: "https://api.kaypro.plenexy.digital",
+    baseUrl: BASE_URL,
     siteUrl: "",
-  
-    defaultMetaDescription:      "",
-    defaulMetaTitle:      "",
+
+    defaultMetaDescription: "Программы непрерывного медицинского образования",
+    defaulMetaTitle: "Программы непрерывного медицинского образования",
     defaulMetaImgSrc: "",
   },
 
   privateRuntimeConfig: {
     axios: {
-      baseURL: process.env.API_URL,
+      baseURL: BASE_URL,
     },
   },
 };

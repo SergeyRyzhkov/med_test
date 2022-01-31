@@ -64,7 +64,7 @@ img {
    сейчас только для Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: $text-gray white;
+  scrollbar-color: $gray white;
 }
 
 /* для Chrome/Edge/Safari */
@@ -73,7 +73,7 @@ img {
   width: 4px;
 }
 *::-webkit-scrollbar-track {
-  background: $text-gray;
+  background: $gray;
 }
 *::-webkit-scrollbar-thumb {
   background-color: white;

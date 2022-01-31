@@ -78,7 +78,7 @@ export default class BaseMultiSelect extends Vue {
     .multiselect__tags {
       color: $primary;
       border: none;
-      border-bottom: 1px solid $light-gray;
+      border-bottom: 1px solid $gray;
       min-height: 32px;
       padding: 0px;
       border-radius: 0px;
