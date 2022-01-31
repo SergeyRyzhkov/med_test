@@ -1,5 +1,5 @@
 <template>
-  <main class="page-wrapper container">
+  <main class="page-wrapper container mb-40">
     <BreadCrumbs />
 
     <div class="flex flex-col md:flex-row md:items-center md:justify-between">

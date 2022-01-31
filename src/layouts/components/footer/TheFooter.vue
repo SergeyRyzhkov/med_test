@@ -1,5 +1,9 @@
 <template>
-  <footer class="container-fluid bg-primary"></footer>
+  <footer class="container-fluid bg-primary h-220">
+    <div class="container">
+      <span class="text-24 text-white">Контент футера</span>
+    </div>
+  </footer>
 </template>
 
 <script lang="ts">

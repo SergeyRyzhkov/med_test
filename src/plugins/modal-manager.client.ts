@@ -66,7 +66,7 @@ class ModalManager {
     options: ModalOptions = {},
     events: any = {}
   ) {
-    return this.modalShow(modal, props, { ...{ classes: "vue-dialog__full" }, ...options }, events);
+    return this.modalShow(modal, { ...props }, { ...{ classes: "vue-dialog__full" }, ...options }, events);
   }
 
   modalShow(

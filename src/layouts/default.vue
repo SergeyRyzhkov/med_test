@@ -3,7 +3,7 @@
     <TheHeader class="hidden lg:block"> </TheHeader>
     <TheMobileHeader class="block lg:hidden"></TheMobileHeader>
     <nuxt />
-    <TheFooter class="mt-40 md:mt-60"></TheFooter>
+    <TheFooter class="mt-auto"></TheFooter>
     <client-only><BaseBackToTop></BaseBackToTop></client-only>
   </div>
 </template>

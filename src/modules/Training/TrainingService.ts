@@ -16,7 +16,11 @@ export class TrainingService extends BaseService {
 
   @Cacheable(0)
   getBySlug(slug: string) {
-    const id = this.getIdBySlug(slug);
+    return this.getById(this.getIdBySlug(slug));
+  }
+
+  @Cacheable(0)
+  getById(id: number) {
     return id ? this.getOneOrDefault(TrainingModel, `training/${id}`) : new TrainingModel();
   }
 }

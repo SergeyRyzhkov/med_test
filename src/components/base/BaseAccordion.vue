@@ -61,7 +61,7 @@ export default class BaseAccordion extends Vue {
     overflow-y: auto;
     padding: 0px;
     &.active {
-      max-height: 300px;
+      max-height: 400px;
       padding-bottom: 8px;
     }
   }
