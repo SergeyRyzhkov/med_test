@@ -3,31 +3,37 @@
     <template #header-center>
       <div class="mb-20 flex w-full items-center">
         <h2>Корзина</h2>
-        <span class="text-22 ml-40 font-semibold">{{ allSum }}</span>
-        <span class="text-gray text-14 mr-40 ml-auto cursor-pointer" @click="clearCart()">Очистить</span>
+        <span class="text-gray text-14 ml-40 cursor-pointer" @click="clearCart()">Очистить</span>
       </div>
     </template>
     <template #right-side>
-      <div v-for="iter in trainingList" :key="iter.id" class="border-gray border-t py-20">
-        <nuxt-link
-          :to="{ name: 'training-card', params: { slug: `${iter.name}-${iter.id}` } }"
-          class="flex cursor-pointer flex-col"
-        >
-          <div class="flex items-center justify-between">
-            <div class="text-14">{{ getDateTypeAddress(iter) }}</div>
-            <div class="ml-auto flex-shrink-0 font-semibold">{{ getPriceFormatted(iter) }}</div>
-            <span
-              class="text-28 text-gray ml-20 cursor-pointer font-normal after:content-['\00d7']"
-              @click.prevent="deleteFromCart(iter)"
-            ></span>
-          </div>
-          <div class="mt-4 flex items-center justify-between">
-            <div>
-              <div class="text-18">{{ iter.name }}</div>
-              <div class="text-14 text-gray mt-8">Илларионов Вячеслав Олегович, д.м.н.</div>
+      <div class="h-[90%] overflow-y-auto">
+        <div v-for="iter in trainingList" :key="iter.id" class="border-gray overflow-y-auto border-t py-20">
+          <nuxt-link
+            :to="{ name: 'training-card', params: { slug: `${iter.name}-${iter.id}` } }"
+            class="flex cursor-pointer flex-col"
+          >
+            <div class="flex items-center justify-between">
+              <div class="text-14">{{ getDateTypeAddress(iter) }}</div>
+              <div class="ml-auto flex-shrink-0 font-semibold">{{ getPriceFormatted(iter) }}</div>
+              <span
+                class="text-28 text-gray ml-20 cursor-pointer font-normal after:content-['\00d7']"
+                @click.prevent="deleteFromCart(iter)"
+              ></span>
             </div>
-          </div>
-        </nuxt-link>
+            <div class="mt-4 flex items-center justify-between">
+              <div>
+                <div class="text-18">{{ iter.name }}</div>
+                <div class="text-14 text-gray mt-8">Илларионов Вячеслав Олегович, д.м.н.</div>
+              </div>
+            </div>
+          </nuxt-link>
+        </div>
+      </div>
+
+      <div class="mt-20 flex flex-col md:items-center lg:flex-row lg:justify-between">
+        <span class="text-24 mb-20 flex-shrink-0 font-semibold lg:mb-0">{{ allSum }}</span>
+        <base-button>Перейти к оформлению</base-button>
       </div>
     </template>
   </BaseModalFullScreen>
@@ -52,7 +58,7 @@ export default class UserCartModal extends Vue {
   }
 
   get allSum() {
-    return `${this.trainingList.reduce((sum, iter) => sum + +iter.price, 0)?.toLocaleString("ru-RU")} ₽`;
+    return `Итого:   ${this.trainingList.reduce((sum, iter) => sum + +iter.price, 0)?.toLocaleString("ru-RU")} ₽`;
   }
 
   getPriceFormatted(model: TrainingModel) {

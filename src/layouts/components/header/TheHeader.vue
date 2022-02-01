@@ -12,10 +12,10 @@
         <nav class="flex flex-col">
           <ul class="header-menu-list text-14 font-semibold text-white">
             <li><nuxt-link :to="{ name: 'training' }">Программы обучения</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'main' }">О нас</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'main' }">Вебинары</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'main' }">Новости</nuxt-link></li>
-            <li><nuxt-link :to="{ name: 'main' }">Контакты</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'about' }">О нас</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'webinars' }">Вебинары</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'news' }">Новости</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li>
           </ul>
         </nav>
       </div>

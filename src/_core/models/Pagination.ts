@@ -8,7 +8,7 @@ export class Pagination extends BaseViewModel {
   selectedPages: number[] = [];
 
   @Expose({ name: "per_page" })
-  perPage = 12;
+  perPage = 9;
 
   @Expose({ name: "current_page" })
   currentPage = 1;

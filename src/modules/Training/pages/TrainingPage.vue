@@ -22,6 +22,7 @@
           </div>
           <div class="mb:mt-40 mt-20 font-normal">{{ dateType }}</div>
           <h1 class="font-compact text-62 mt-24 uppercase lg:mt-32">{{ model.name }}</h1>
+          <div class="text-14 text-gray mt-4">{{ categoryName }}</div>
           <div class="flex flex-col lg:flex-row">
             <base-button class="mt-18 bg-white lg:mt-40" @click="onSubscribeClicked">Записаться на курс</base-button>
             <base-button v-if="!existsInCart" class="mt-18 bg-white lg:ml-16 lg:mt-40" @click="addToCart()"
@@ -71,7 +72,7 @@
 <script lang="ts">
 import { Component, getModule, Prop, Vue } from "nuxt-property-decorator";
 import dayjs from "dayjs";
-import TrainingModel from "../models/TrainingModel";
+import TrainingModel, { TrainingCategory } from "../models/TrainingModel";
 import { TrainingService } from "../TrainingService";
 import { SeoMetaTagsBuilder } from "@/_core/service/SeoMetaTagsBuilder";
 import AppStore from "@/modules/Root/store/AppStore";
@@ -111,6 +112,10 @@ export default class TrainingPage extends Vue {
     return this.model.status === "completed" ? "Завершено" : "Планируется";
   }
 
+  get categoryName() {
+    return TrainingCategory[this.model.category_id]?.name || "Общее";
+  }
+
   addToCart() {
     this.$serviceLocator.getService(UserCartService).addToCart(this.model);
   }
@@ -129,7 +134,7 @@ export default class TrainingPage extends Vue {
   updateBreadCrumbs() {
     const breadCrumbList = [
       { linkName: "Главная", name: "main" },
-      { linkName: "Обучение", name: "training" },
+      { linkName: "Программы обучения", name: "training" },
       { linkName: this.model?.name?.substring(0, 120) + "..." },
     ];
     getModule(AppStore, this.$store).updateBreadCrumbList(breadCrumbList);

@@ -5,7 +5,7 @@
       ref="maskFiled"
       v-imask="mask"
       :value="value"
-      :class="[currentClasses, 'base-input__input', classes, type === 'password' ? 'pr-16 md:pr-30' : '']"
+      :class="[currentClasses, 'base-input__input', classes, type === 'password' ? 'md:pr-30 pr-16' : '']"
       :type="type === 'password' && showPassword ? '' : type"
       v-bind="$attrs"
       v-on="{
@@ -20,6 +20,19 @@
       <img v-show="showPassword" src="/icons/eye-open.svg" width="32" height="32" />
       <img v-show="!showPassword" src="/icons/eye-close.svg" width="32" height="32" />
     </a>
+
+    <svg
+      v-if="type === 'search'"
+      class="base-input_search_icon"
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="10.4298" cy="11" r="6.575" transform="rotate(-45 10.4298 11)" stroke="#16192C" stroke-width="1.6" />
+      <path d="M15.1144 15.6846L18.9151 19.4853" stroke="#16192C" stroke-width="1.6" />
+    </svg>
 
     <slot />
 
@@ -37,7 +50,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Ref } from "nuxt-property-decorator";
 
-type InputType = "text" | "number" | "tel" | "email" | "password" | "find" | "select" | "checkbox";
+type InputType = "text" | "number" | "tel" | "email" | "password" | "find" | "select" | "checkbox" | "search";
 
 @Component({
   inheritAttrs: false,
@@ -140,6 +153,7 @@ export default class BaseInput extends Vue {
 .base-input {
   position: relative;
   width: 100%;
+  height: max-content;
 
   &__wrap {
     position: relative;
@@ -202,6 +216,13 @@ export default class BaseInput extends Vue {
     position: absolute;
     margin-top: 4px;
     left: 0;
+  }
+
+  &_search_icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 4px;
   }
 }
 @keyframes shakeError {

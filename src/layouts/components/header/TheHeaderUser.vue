@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center">
     <img src="/images/header_heart.svg" width="24" height="24" class="cursor-pointer" alt=" " />
-    <div class="relative" @click="openUserCart()">
-      <img src="/images/header_shop.svg" width="22" height="22" class="ml-24 cursor-pointer" alt=" " />
+    <div class="relative cursor-pointer" @click="openUserCart()">
+      <img src="/images/header_shop.svg" width="22" height="22" class="ml-24" alt=" " />
       <div
         class="text-12 leading-14 w-18 h-18 bg-secondary absolute -right-12 -top-2 flex items-center justify-center rounded-full pl-1 text-white lg:ml-48"
       >

@@ -12,7 +12,7 @@
         class="h-223 w-full object-cover transition-all hover:scale-105"
         alt=" "
       />
-      <div class="bg-secondary text-14 absolute top-16 left-16 rounded-full px-16 py-8 text-white">{{ statusName }}</div>
+      <div class="bg-secondary text-14 absolute top-16 left-16 rounded-full px-16 py-8 text-white">{{ categoryName }}</div>
     </div>
     <div class="mt-18 flex justify-between">
       <div class="text-14">{{ dateTypeAddress }}</div>
@@ -39,7 +39,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 import dayjs from "dayjs";
-import TrainingModel from "../models/TrainingModel";
+import TrainingModel, { TrainingCategory } from "../models/TrainingModel";
 import { UserCartService } from "@/modules/Profile/UserCartService";
 
 @Component
@@ -63,6 +63,10 @@ export default class TrainingItem extends Vue {
     return `${dayjs(this.item.date?.split("T")[0]).format("DD MMMM YYYY")} | ${this.item.is_online ? "онлайн" : "оффлайн"} | ${
       this.item.location || "Россия"
     }`;
+  }
+
+  get categoryName() {
+    return TrainingCategory[this.item.category_id]?.name || "Общее";
   }
 
   addToCart() {

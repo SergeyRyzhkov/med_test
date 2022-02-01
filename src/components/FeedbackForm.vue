@@ -1,9 +1,5 @@
 <template>
   <form @submit.prevent="send">
-    <div v-if="radio" class="mb-32 flex w-full justify-between sm:w-auto sm:justify-start">
-      <BaseRadioButton v-model="formModel.type" label="Обращение" value="appeal" />
-      <BaseRadioButton v-model="formModel.type" class="sm:ml-74" label="Запрос технологу" value="request" />
-    </div>
     <BaseInput
       v-model="formModel.name"
       placeholder="ФИО*"
@@ -62,9 +58,7 @@
 import { Component, Vue, Prop } from "nuxt-property-decorator";
 import { email, required } from "vuelidate/lib/validators";
 import { phoneMask } from "@/utils/InputMaskDefinitions";
-import { EmptyService } from "@/_core/service/EmptyService";
 import { BaseViewModel } from "@/_core/models/BaseViewModel";
-import { executeAction, loadReCaptchaScript } from "@/utils/ReCaptcha";
 
 const validations = () => {
   return {
@@ -93,13 +87,6 @@ class FeedbackModel extends BaseViewModel {
 export default class FeedbackForm extends Vue {
   formModel: FeedbackModel = new FeedbackModel();
   phoneMask = phoneMask;
-
-  @Prop({ default: false })
-  radio: boolean;
-
-  mounted() {
-    loadReCaptchaScript(this.$config.reCaptchaSiteKey);
-  }
 
   send() {
     this.$v.$touch();
