@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <header class="flex h-[63px] items-center justify-between p-16">
       <div class="flex items-center">
         <div class="menu-toogler" :class="{ active: menuOpened }" @click="menuToggle()">
@@ -11,11 +11,11 @@
     </header>
     <div class="mobile-menu-list w-screen" :class="{ active: menuOpened === true }">
       <ul class="mt-10">
-        <!-- <li><nuxt-link :to="{ name: 'catalog' }">Каталог</nuxt-link></li>
-        <li><nuxt-link :to="{ name: 'training' }">Обучение парикмахеров</nuxt-link></li>
-        <li><nuxt-link :to="{ name: 'cooperation' }">Сотрудничество</nuxt-link></li>
+        <li><nuxt-link :to="{ name: 'training' }">Программы обучения</nuxt-link></li>
+        <li><nuxt-link :to="{ name: 'about' }">О нас</nuxt-link></li>
+        <li><nuxt-link :to="{ name: 'webinars' }">Вебинары</nuxt-link></li>
         <li><nuxt-link :to="{ name: 'news' }">Новости</nuxt-link></li>
-        <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li> -->
+        <li><nuxt-link :to="{ name: 'contacts' }">Контакты</nuxt-link></li>
       </ul>
     </div>
   </div>
@@ -29,6 +29,18 @@ export default class TheMobileHeader extends Vue {
   menuOpened = false;
   menuToggle() {
     this.menuOpened = !this.menuOpened;
+    this.changeOverflow(this.menuOpened);
+  }
+
+  changeOverflow(value: boolean) {
+    const overflow = document.getElementsByTagName("html")[0];
+    if (value) {
+      overflow.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      overflow.style.overflow = "auto";
+      document.body.style.overflow = "auto";
+    }
   }
 }
 </script>
@@ -69,7 +81,7 @@ export default class TheMobileHeader extends Vue {
   transform: translateX(-100%);
   box-sizing: border-box;
   position: fixed;
-  top: 106px;
+  top: 63px;
   left: 0px;
   flex-direction: column;
   background-color: white;
