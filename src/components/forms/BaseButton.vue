@@ -23,7 +23,7 @@ export default class BaseButton extends Vue {
 
 <style lang="scss" scoped>
 .base-button {
-  @apply px-20 py-12 md:px-40;
+  @apply md:px-68 py-14 px-40;
   white-space: nowrap;
   font-size: 14px;
   font-weight: 500;
@@ -34,7 +34,7 @@ export default class BaseButton extends Vue {
   display: flex;
   align-items: center;
   justify-content: center;
-  &:hover {
+  &:hover:enabled {
     background-color: $secondary;
     border-color: $secondary;
     color: white;
@@ -42,5 +42,10 @@ export default class BaseButton extends Vue {
   &__empty-padding {
     padding: 0px;
   }
+}
+
+.base-button:disabled {
+  color: $gray;
+  border: 1px solid $gray;
 }
 </style>
